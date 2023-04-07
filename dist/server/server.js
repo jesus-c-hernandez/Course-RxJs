@@ -15,7 +15,11 @@ app.route('/api/courses/:id').get(get_courses_route_1.getCourseById);
 app.route('/api/lessons').get(search_lessons_route_1.searchLessons);
 app.route('/api/courses/:id').put(save_course_route_1.saveCourse);
 app.route('/api/login').post(login_route_1.loginUser);
+app.get('/*', function (req, res) {
+    res.sendFile(__dirname + '../app/index.html');
+});
 const httpServer = app.listen(9000, () => {
-    console.log('HTTP REST API Server running at http://localhost:' + httpServer.address()['port']);
+    console.log('HTTP REST API Server running at http://localhost:' +
+        httpServer.address()['port']);
 });
 //# sourceMappingURL=server.js.map
